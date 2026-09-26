@@ -1,11 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import {
-  LuArrowLeft,
-  LuStar,
-  LuPlus,
-  LuBookmark,
-} from 'react-icons/lu';
+import { LuStar } from 'react-icons/lu';
+import WorkoutActions from '@/component/workout/WorkoutActions';
 
 const getWorkout = async (id: string) => {
   const response = await fetch(
@@ -23,11 +18,12 @@ const WorkoutDetails = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
+
   const workout = await getWorkout(id);
 
   return (
-    <section className="px-6 lg:px-14 py-12">
-      {/* Two Column */}
+    <section className="px-6 lg:px-14 py-20">
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
 
         {/* Left Side */}
@@ -43,7 +39,8 @@ const WorkoutDetails = async ({
 
         {/* Right Side */}
         <div>
-          {/* Title */}
+
+          {/* Workout Name */}
           <h1 className="text-4xl font-black text-white">
             {workout.name.toUpperCase()}
           </h1>
@@ -53,7 +50,7 @@ const WorkoutDetails = async ({
             {workout.description}
           </p>
 
-          {/* Tags */}
+          {/* Muscle Groups */}
           <div className="flex flex-wrap gap-2 mt-6">
             {workout.muscleGroups.map((muscle: string) => (
               <span
@@ -67,24 +64,33 @@ const WorkoutDetails = async ({
 
           {/* Key Specs */}
           <div className="mt-8 border border-zinc-800 rounded-xl overflow-hidden">
+
             <div className="flex justify-between px-5 py-4 border-b border-zinc-800">
               <span className="text-zinc-400">EQUIPMENT</span>
-              <span className="text-white">{workout.equipment}</span>
+              <span className="text-white">
+                {workout.equipment}
+              </span>
             </div>
 
             <div className="flex justify-between px-5 py-4 border-b border-zinc-800">
               <span className="text-zinc-400">DIFFICULTY</span>
-              <span className="text-white">{workout.difficulty}</span>
+              <span className="text-white">
+                {workout.difficulty}
+              </span>
             </div>
 
             <div className="flex justify-between px-5 py-4 border-b border-zinc-800">
               <span className="text-zinc-400">SETS</span>
-              <span className="text-white">{workout.sets}</span>
+              <span className="text-white">
+                {workout.sets}
+              </span>
             </div>
 
             <div className="flex justify-between px-5 py-4 border-b border-zinc-800">
               <span className="text-zinc-400">REPS</span>
-              <span className="text-white">{workout.reps}</span>
+              <span className="text-white">
+                {workout.reps}
+              </span>
             </div>
 
             <div className="flex justify-between px-5 py-4 border-b border-zinc-800">
@@ -109,15 +115,18 @@ const WorkoutDetails = async ({
                 {workout.rating}
               </span>
             </div>
+
           </div>
 
           {/* Instructions */}
           <div className="mt-8">
+
             <h2 className="text-2xl font-bold text-white">
               INSTRUCTIONS
             </h2>
 
             <ol className="mt-4 space-y-4">
+
               {workout.instructions.map(
                 (instruction: string, index: number) => (
                   <li
@@ -128,27 +137,23 @@ const WorkoutDetails = async ({
                       {index + 1}.
                     </span>
 
-                    <span>{instruction}</span>
+                    <span>
+                      {instruction}
+                    </span>
                   </li>
                 )
               )}
+
             </ol>
+
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-8">
-            <button className="btn bg-lime-400 text-black border-none">
-              <LuPlus />
-              Add to today's plan
-            </button>
+          <WorkoutActions workout={workout} />
 
-            <button className="btn bg-transparent text-white border-zinc-700">
-              <LuBookmark />
-              Save for later
-            </button>
-          </div>
         </div>
       </div>
+
     </section>
   );
 };
