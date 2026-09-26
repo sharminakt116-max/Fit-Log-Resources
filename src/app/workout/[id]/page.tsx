@@ -3,13 +3,18 @@ import { LuStar } from 'react-icons/lu';
 import WorkoutActions from '@/component/workout/WorkoutActions';
 
 const getWorkout = async (id: string) => {
+    try{
   const response = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${id}`
+    `$ {process.env.NEXT_PUBLIC_SERVER_BASE_URL}https://api.abcz.workers.dev/api/fitlog/${id}`
   );
 
   const data = await response.json();
 
   return data;
+}catch(error){
+    console.error("Error fetching card data:",error);
+    return[];
+}
 };
 
 const WorkoutDetails = async ({

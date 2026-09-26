@@ -129,7 +129,7 @@ const MyPlanPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#0d0f12] text-white px-6 sm:px-15 py-20">
+    <main className="min-h-screen bg-[#0d0f12] text-white px-6 sm:px-15 py-30">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}

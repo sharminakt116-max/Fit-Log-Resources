@@ -5,8 +5,8 @@ import bannerImg from "@/assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="py-10 sm:py-14 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 sm:py-14 lg:py-25">
+      <div className="container mx-auto px-6 sm:px-6 lg:px-8">
 
         <div className="bg-[#1c1f26] rounded-2xl overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 p-6 sm:p-10 lg:p-14">

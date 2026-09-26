@@ -30,7 +30,7 @@ const WorkoutsCard = ({ card }: ICardProps) => {
           {card.muscleGroups.map((muscle) => (
             <span
               key={muscle}
-              className="text-xs font-semibold text-lime-400 border border-lime-400/30 px-2 py-1 rounded-full"
+              className="text-xs font-semibold bg-lime-400 text-black border border-lime-400/30 px-2 py-1 rounded-full"
             >
               {muscle.toUpperCase()}
             </span>
