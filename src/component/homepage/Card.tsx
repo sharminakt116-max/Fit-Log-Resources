@@ -17,7 +17,7 @@ const Card = async () => {
   return (
     <section
       id="library"
-      className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-12"
     >
       {/* Heading */}
       <div className="mb-6 sm:mb-8">

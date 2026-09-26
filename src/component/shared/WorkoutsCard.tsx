@@ -10,7 +10,7 @@ const WorkoutsCard = ({ card }: ICardProps) => {
   return (
     <Link
       href={`/workout/${card.id}`}
-      className="bg-[#151922] border border-zinc-800 rounded-xl overflow-hidden hover:border-lime-400 transition"
+      className="bg-[#222630] border border-zinc-800 rounded-xl overflow-hidden hover:border-lime-400 transition"
     >
 
       {/* Image */}
