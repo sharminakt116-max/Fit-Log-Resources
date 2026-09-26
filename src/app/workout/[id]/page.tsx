@@ -5,7 +5,7 @@ import WorkoutActions from '@/component/workout/WorkoutActions';
 const getWorkout = async (id: string) => {
   try {
     const response = await fetch(
-      `https://api.abcz.workers.dev/api/fitlog/${id}`
+      `https://api.api-store.workers.dev/api/fitlog/:id`
     );
 
     const data = await response.json();
