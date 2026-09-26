@@ -32,7 +32,7 @@ const Navber = () => {
 
       {/* Active link */}
       <li>
-        <a className="bg-[#1A2312] text-lime-400 rounded-full">
+         <a className="bg-[#1A2312] text-lime-400 rounded-full">
           Workout
         </a>
       </li>
