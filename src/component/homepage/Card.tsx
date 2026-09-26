@@ -2,21 +2,19 @@ import WorkoutsCard from '@/component/shared/WorkoutsCard';
 import { ICard } from '@/types/type';
 
 const getCard = async () => {
-    try{
-        
-  const response = await fetch(
-    '$ {process.env.NEXT_PUBLIC_SERVER_BASE_URL}https://api.abcz.workers.dev/api/fitlog'
-  );
+  try {
+    const response = await fetch(
+      'https://api.abcz.workers.dev/api/fitlog'
+    );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  return data;
-}catch(error){
-    console.error("Error fetching card data:",error);
-    return[];
-}
+    return data;
+  } catch (error) {
+    console.error('Error fetching card data:', error);
+    return [];
+  }
 };
-
 const Card = async () => {
   const cardData = await getCard();
 
