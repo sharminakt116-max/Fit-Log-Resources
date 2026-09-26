@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { LuStar } from 'react-icons/lu';
 import WorkoutActions from '@/component/workout/WorkoutActions';
@@ -5,8 +6,12 @@ import WorkoutActions from '@/component/workout/WorkoutActions';
 const getWorkout = async (id: string) => {
   try {
     const response = await fetch(
-      `https://api.api-store.workers.dev/api/fitlog/:id`
+      `https://api.api-store.workers.dev/api/fitlog/${id}`
     );
+
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status}`);
+    }
 
     const data = await response.json();
 
@@ -16,6 +21,7 @@ const getWorkout = async (id: string) => {
     return null;
   }
 };
+
 const WorkoutDetails = async ({
   params,
 }: {
@@ -25,9 +31,18 @@ const WorkoutDetails = async ({
 
   const workout = await getWorkout(id);
 
+  if (!workout) {
+    return (
+      <section className="min-h-screen flex items-center justify-center px-6">
+        <h1 className="text-2xl font-bold text-white">
+          Workout not found
+        </h1>
+      </section>
+    );
+  }
+
   return (
     <section className="px-6 lg:px-14 py-20">
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
 
         {/* Left Side */}
@@ -157,7 +172,6 @@ const WorkoutDetails = async ({
 
         </div>
       </div>
-
     </section>
   );
 };
